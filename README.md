@@ -1,36 +1,46 @@
-# Proyecto de React
+# Frontend - Acortador de URL
 
-Este es un proyecto de React. A continuación se detallan los pasos para ponerlo en funcionamiento en tu entorno local.
+Este repositorio contiene el frontend para la aplicación **Acortador de URL**. Es la interfaz de usuario que permite interactuar con la API del backend para acortar URLs y gestionar los enlaces acortados.
+Asegúrate de que el backend esté correctamente configurado y en funcionamiento antes de instalar el frontend. La instalación del frontend requiere que el backend esté disponible para interactuar con la API.
 
-## Prerrequisitos
 
-Antes de comenzar, asegúrate de tener instalado lo siguiente en tu sistema:
-- **Node.js** (versión recomendada: 14.x o superior)
-- **npm** (versión recomendada: 6.x o superior) o **Yarn** (opcional)
+## Tabla de Contenidos
 
-## Pasos para poner en marcha el proyecto
+- [Introducción](#introducción)
+- [Instalación](#instalación)
 
-1. **Clonar el repositorio**
-   Clona este repositorio en tu máquina local usando el siguiente comando:
-   ```sh
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-2. Navega al directorio 
-    cd url-shortener-front
-3. Instalar dependencias
-    npm install (o yarn install si estás utilizando Yarn)
-4. Ejecutar app
-    npm start (o yarn start si estás utilizando Yarn)
-5. Construccion de app en prod 
-    npm run build (o yarn build si estás utilizando Yarn)
+## Introducción
 
-**Estructura basica del proyecto**
-/url-shortener-front
-├── App.js             # Archivos públicos estáticos
-│── App.css            # Hoja de estilos
-├── src/               # carpeta de componentes
-│   ├── components/    # Componentes React
-│       |-- Rir.js     # Logica de redireccion
-│       ├── Shorter.js # logica de acortador
-│   
-├── package.json       # Archivo de configuración de npm
-└── README.md          # Este archivo
+Este proyecto es el frontend para la aplicación **Acortador de URL**. Utiliza React para proporcionar una interfaz intuitiva para los usuarios. Asegúrate de tener configurado y funcionando el backend antes de proceder con la instalación del frontend.
+
+## Instalación
+
+Sigue estos pasos para configurar el frontend:
+
+### Clonar el Repositorio
+
+Clona el repositorio en tu máquina local:
+
+```bash
+git clone https://github.com/omarE-salazarR/shorter-spot2-frontend.git
+```
+
+#### Navegar a la Carpeta del Proyecto
+Accede a la carpeta del frontend:
+```bash
+cd Frontend-shorter
+```
+
+##### Ejecutar el Script de Inicialización
+Ejecuta el script init.sh para configurar el entorno. Sigue las instrucciones que se te presenten:
+```bash
+./init.sh
+```
+##### Ejecutar el Script de Inicialización
+corre el proyecto con 
+
+```bash
+npm run start:dev #desarrollo
+npm run start:prod #produccion
+npm run start:test #test
+```

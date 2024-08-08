@@ -68,15 +68,22 @@ const Shorter = () => {
               });
           
               copiarUrlButton.addEventListener('click', () => {
-                navigator.clipboard.writeText(response.data.short_url).then(() => {
-                  Swal.fire({
-                    title: 'URL copiada',
-                    text: 'La URL ha sido copiada al portapapeles.',
-                    icon: 'success',
-                    showConfirmButton: false,
-                    timer: 1500,
+                // Comprobamos si la API Clipboard está disponible
+                if (navigator.clipboard) {
+                  navigator.clipboard.writeText(response.data.short_url).then(() => {
+                    Swal.fire({
+                      title: 'URL copiada',
+                      text: 'La URL ha sido copiada al portapapeles.',
+                      icon: 'success',
+                      showConfirmButton: false,
+                      timer: 1500,
+                    });
+                  }).catch(err => {
+                    fallbackCopyTextToClipboard(response.data.short_url);
                   });
-                });
+                } else {
+                  fallbackCopyTextToClipboard(response.data.short_url);
+                }
               });
             },
           });
@@ -130,5 +137,29 @@ const Shorter = () => {
     </div>
   );
 };
+
+function fallbackCopyTextToClipboard(text) {
+  const textArea = document.createElement('textarea');
+  textArea.value = text;
+  textArea.style.position = 'fixed';
+  textArea.style.left = '-9999px';
+  document.body.appendChild(textArea);
+  textArea.select();
+  
+  try {
+    document.execCommand('copy');
+    Swal.fire({
+      title: 'URL copiada',
+      text: 'La URL ha sido copiada al portapapeles.',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  } catch (err) {
+    console.error('Error al copiar el texto: ', err);
+  }
+  
+  document.body.removeChild(textArea);
+}
 
 export default Shorter;

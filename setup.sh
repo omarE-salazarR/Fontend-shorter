@@ -32,7 +32,7 @@ echo "Ejemplo: http://127.0.0.1:8000 o http://mi-dominio.com"
 read -p "URL del backend: " BACKEND_URL
 
 # Concatenar '/api/login' a la URL proporcionada
-TOKEN_URL="${BACKEND_URL}/api/login"
+TOKEN_URL="${BACKEND_URL}/api/token"
 
 # Verificar si se proporcionó un argumento de entorno
 if [ -z "$1" ]; then
